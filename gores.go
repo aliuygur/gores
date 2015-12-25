@@ -188,12 +188,12 @@ func _xml(w http.ResponseWriter, code int, b []byte) {
 // }
 
 // NoContent sends a response with no body and a status code.
-func NoContent(w http.ResponseWriter, code int) error {
-	w.WriteHeader(code)
+func NoContent(w http.ResponseWriter) error {
+	w.WriteHeader(http.StatusNoContent)
 	return nil
 }
 
 // Error sends a error response with a status code
-func Error(w http.ResponseWriter, message string, code int) {
+func Error(w http.ResponseWriter, code int, message string) {
 	http.Error(w, message, code)
 }
