@@ -1,3 +1,4 @@
+// Package gores http response utility library for GO
 package gores
 
 import (
@@ -192,7 +193,7 @@ func NoContent(w http.ResponseWriter, code int) error {
 	return nil
 }
 
-// Error invokes the registered HTTP error handler. Generally used by middleware.
+// Error sends a error response with a status code
 func Error(w http.ResponseWriter, message string, code int) {
 	http.Error(w, message, code)
 }
