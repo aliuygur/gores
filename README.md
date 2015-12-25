@@ -4,7 +4,7 @@ http response utility library for GO
 
 ## installation
 
-  go get github.com/alioygur/gores
+`go get github.com/alioygur/gores`
 
 
 ## use
