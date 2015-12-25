@@ -54,8 +54,8 @@ for more documentation [godoc](https://godoc.org/github.com/alioygur/gores)
 
 ## TODO
 
+- [x] write tests
 - [ ] add file response
-- [ ] write tests
 
 ## Contribute
 
