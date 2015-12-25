@@ -52,6 +52,11 @@ func main() {
 
 for more documentation [godoc](https://godoc.org/github.com/alioygur/gores)
 
+## TODO
+
+- [ ] add file response
+- [ ] write tests
+
 ## Contribute
 
 **Use issues for everything**
