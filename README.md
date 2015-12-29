@@ -1,4 +1,5 @@
-# gores
+# gores [![Build Status](https://travis-ci.org/alioygur/gores.svg?branch=master)](https://travis-ci.org/alioygur/gores)
+
 http response utility library for GO
 
 
@@ -7,7 +8,7 @@ http response utility library for GO
 `go get github.com/alioygur/gores`
 
 
-## use
+## usage
 
 ```go
 package main
