@@ -26,39 +26,10 @@ type User struct {
 	Age   int
 }
 
-func StringResponse(w http.ResponseWriter, r *http.Request) {
-	gores.String(w, http.StatusOK, "Hello World")
-}
-
-func HTMLResponse(w http.ResponseWriter, r *http.Request) {
-	gores.HTML(w, http.StatusOK, "<h1>Hello World</h1>")
-}
-
-func JSONResponse(w http.ResponseWriter, r *http.Request) {
-	user := User{Name: "Ali", Email: "ali@example.com", Age: 28}
-	gores.JSON(w, http.StatusOK, user)
-}
-
-func FileResponse(w http.ResponseWriter, r *http.Request) {
-	err := gores.File(w, r, "./path/to/file.html")
-
-	if err != nil {
-		log.Println(err.Error())
-	}
-}
-
-func DownloadFile(w http.ResponseWriter, r *http.Request) {
-	err := gores.Download(w, r, "./path/to/file.pdf", "example.pdf")
-
-	if err != nil {
-		log.Println(err.Error())
-	}
-}
-
 func main() {
 	// Plain text response
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		gores.Plain(w, http.StatusOK, "Hello World")
+		gores.String(w, http.StatusOK, "Hello World")
 	})
 
 	// HTML response
