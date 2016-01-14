@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"net/http"
+	"path/filepath"
 )
 
 const (
@@ -76,19 +77,17 @@ const (
 )
 
 // HTML sends an HTTP response with status code.
-func HTML(w http.ResponseWriter, code int, html string) (err error) {
+func HTML(w http.ResponseWriter, code int, html string) {
 	w.Header().Set(ContentType, TextHTMLCharsetUTF8)
 	w.WriteHeader(code)
 	w.Write([]byte(html))
-	return
 }
 
 // String sends a string response with status code.
-func String(w http.ResponseWriter, code int, s string) (err error) {
+func String(w http.ResponseWriter, code int, s string) {
 	w.Header().Set(ContentType, TextPlainCharsetUTF8)
 	w.WriteHeader(code)
 	w.Write([]byte(s))
-	return
 }
 
 // JSON sends a JSON response with status code.
@@ -164,33 +163,42 @@ func _xml(w http.ResponseWriter, code int, b []byte) {
 	w.Write(b)
 }
 
-// File sends a response with the content of the file. If `attachment` is set
-// to true, the client is prompted to save the file with provided `name`,
+// File sends a response with the content of the file
+func File(w http.ResponseWriter, r *http.Request, path string) (err error) {
+	err = file(w, r, path, "", false)
+	return
+}
+
+// Download the client is prompted to save the file with provided `name`,
 // name can be empty, in that case name of the file is used.
-// func File(w http.ResponseWriter, path, name string, attachment bool) (err error) {
-// 	dir, file := filepath.Split(path)
-// 	if attachment {
-// 		w.Header().Set(ContentDisposition, "attachment; filename="+name)
-// 	}
-//
-//   fs := http.Dir(dir)
-//   	f, err := fs.Open(file)
-//   	if err != nil {
-//       return
-//   	}
-//   	defer f.Close()
-//
-//   	fi, _ := f.Stat()
-//
-//   	http.ServeContent(c.response, c.request, fi.Name(), fi.ModTime(), f)
-//
-// 	return
-// }
+func Download(w http.ResponseWriter, r *http.Request, path string, name string) (err error) {
+	err = file(w, r, path, name, true)
+	return
+}
+
+func file(w http.ResponseWriter, r *http.Request, path, name string, attachment bool) (err error) {
+	dir, file := filepath.Split(path)
+	if attachment {
+		w.Header().Set(ContentDisposition, "attachment; filename="+name)
+	}
+
+	fs := http.Dir(dir)
+	f, err := fs.Open(file)
+	if err != nil {
+		return
+	}
+	defer f.Close()
+
+	fi, _ := f.Stat()
+
+	http.ServeContent(w, r, fi.Name(), fi.ModTime(), f)
+
+	return
+}
 
 // NoContent sends a response with no body and a status code.
-func NoContent(w http.ResponseWriter) error {
+func NoContent(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNoContent)
-	return nil
 }
 
 // Error sends a error response with a status code
