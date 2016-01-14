@@ -5,7 +5,7 @@ http response utility library for GO
 
 ## installation
 
-`go get gopkg.in/alioygur/gores.v2`
+`go get gopkg.in/alioygur/gores.v1`
 
 
 ## usage
@@ -17,7 +17,7 @@ import (
 	"log"
 	"net/http"
 
-	"gopkg.in/alioygur/gores.v2"
+	"gopkg.in/alioygur/gores.v1"
 )
 
 type User struct {
