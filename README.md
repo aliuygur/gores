@@ -2,6 +2,8 @@
 
 http response utility library for GO
 
+this package is very small and lightweight, useful for RESTful APIs.
+
 
 ## installation
 
