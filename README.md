@@ -1,4 +1,4 @@
-# gores [![Build Status](https://travis-ci.org/alioygur/gores.svg?branch=master)](https://travis-ci.org/alioygur/gores)
+# gores [![Build Status](https://travis-ci.org/alioygur/gores.svg?branch=master)](https://travis-ci.org/alioygur/gores) [![Go Report Card](https://goreportcard.com/badge/github.com/alioygur/gores)](https://goreportcard.com/report/github.com/alioygur/gores)
 
 http response utility library for GO
 

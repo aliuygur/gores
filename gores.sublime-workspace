@@ -559,10 +559,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 456.0,
-		"last_filter": "save",
+		"height": 500.0,
+		"last_filter": "git p",
 		"selected_items":
 		[
+			[
+				"git p",
+				"Git: Push"
+			],
+			[
+				"gc",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add All"
+			],
 			[
 				"save",
 				"Project: Save As"
@@ -884,7 +896,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 300.0
+		"width": 647.0
 	},
 	"console":
 	{
@@ -909,6 +921,8 @@
 	],
 	"file_history":
 	[
+		"/home/ali/go/src/github.com/alioygur/gores/README.md",
+		"/home/ali/go/src/github.com/alioygur/gores/.travis.yml",
 		"/home/ali/go/src/github.com/alioygur/goaligo/app/services/post.go",
 		"/home/ali/go/src/github.com/alioygur/goaligo/app/app.go",
 		"/home/ali/go/src/github.com/alioygur/goaligo/app/me_handler.go",
@@ -1034,13 +1048,11 @@
 		"/home/ali/go/src/github.com/alioygur/social-accounts/app/src/contetto/configAPI.go",
 		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/lib/lib.go",
 		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/errors.go",
-		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/job.go",
-		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/lib/errors.go",
-		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/utils.go"
+		"/home/ali/go/src/github.com/alioygur/piklook-corporate/app/job.go"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 56.0
 	},
 	"find_in_files":
 	{
@@ -1057,6 +1069,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"render",
 			"validate",
 			"validate:",
 			"CountWhere",
