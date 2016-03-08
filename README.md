@@ -4,7 +4,7 @@
 [![GoDoc](https://godoc.org/github.com/alioygur/gores?status.svg)](https://godoc.org/github.com/alioygur/gores)
 [![Go Report Card](https://goreportcard.com/badge/github.com/alioygur/gores)](https://goreportcard.com/report/github.com/alioygur/gores)
 
-http response utility library for GO
+http response utility library for Go
 
 this package is very small and lightweight, useful for RESTful APIs.
 

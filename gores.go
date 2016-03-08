@@ -8,30 +8,21 @@ import (
 	"path/filepath"
 )
 
+// HTTP Methods
 const (
-	// CONNECT HTTP method
 	CONNECT = "CONNECT"
-	// DELETE HTTP method
-	DELETE = "DELETE"
-	// GET HTTP method
-	GET = "GET"
-	// HEAD HTTP method
-	HEAD = "HEAD"
-	// OPTIONS HTTP method
+	DELETE  = "DELETE"
+	GET     = "GET"
+	HEAD    = "HEAD"
 	OPTIONS = "OPTIONS"
-	// PATCH HTTP method
-	PATCH = "PATCH"
-	// POST HTTP method
-	POST = "POST"
-	// PUT HTTP method
-	PUT = "PUT"
-	// TRACE HTTP method
-	TRACE = "TRACE"
+	PATCH   = "PATCH"
+	POST    = "POST"
+	PUT     = "PUT"
+	TRACE   = "TRACE"
+)
 
-	//-------------
-	// Media types
-	//-------------
-
+// Media Types
+const (
 	ApplicationJSON                  = "application/json"
 	ApplicationJSONCharsetUTF8       = ApplicationJSON + "; " + CharsetUTF8
 	ApplicationJavaScript            = "application/javascript"
@@ -46,17 +37,10 @@ const (
 	TextPlain                        = "text/plain"
 	TextPlainCharsetUTF8             = TextPlain + "; " + CharsetUTF8
 	MultipartForm                    = "multipart/form-data"
+)
 
-	//---------
-	// Charset
-	//---------
-
-	CharsetUTF8 = "charset=utf-8"
-
-	//---------
-	// Headers
-	//---------
-
+// Headers
+const (
 	AcceptEncoding     = "Accept-Encoding"
 	Authorization      = "Authorization"
 	ContentDisposition = "Content-Disposition"
@@ -69,10 +53,13 @@ const (
 	WWWAuthenticate    = "WWW-Authenticate"
 	XForwardedFor      = "X-Forwarded-For"
 	XRealIP            = "X-Real-IP"
-	//-----------
-	// Protocols
-	//-----------
+)
 
+const (
+	// CharsetUTF8 utf8 character set
+	CharsetUTF8 = "charset=utf-8"
+
+	// WebSocket web socket protocol
 	WebSocket = "websocket"
 )
 
@@ -96,9 +83,7 @@ func JSON(w http.ResponseWriter, code int, i interface{}) (err error) {
 	if err != nil {
 		return err
 	}
-	w.Header().Set(ContentType, ApplicationJSONCharsetUTF8)
-	w.WriteHeader(code)
-	w.Write(b)
+	_json(w, code, b)
 	return
 }
 
@@ -139,10 +124,7 @@ func XML(w http.ResponseWriter, code int, i interface{}) (err error) {
 	if err != nil {
 		return err
 	}
-	w.Header().Set(ContentType, ApplicationXMLCharsetUTF8)
-	w.WriteHeader(code)
-	w.Write([]byte(xml.Header))
-	w.Write(b)
+	_xml(w, code, b)
 	return
 }
 
