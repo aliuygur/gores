@@ -11,7 +11,7 @@ this package is very small and lightweight, useful for RESTful APIs.
 
 ## installation
 
-`go get gopkg.in/alioygur/gores.v1`
+`go get github.com/alioygur/gores`
 
 
 ## usage
@@ -23,7 +23,7 @@ import (
 	"log"
 	"net/http"
 
-	"gopkg.in/alioygur/gores.v1"
+	"github.com/alioygur/gores"
 )
 
 type User struct {
@@ -85,12 +85,6 @@ func main() {
 ```
 
 for more documentation [godoc](https://godoc.org/github.com/alioygur/gores)
-
-## TODO
-
-- [x] write tests
-- [x] add file response
-- [ ] more test
 
 ## Contribute
 
