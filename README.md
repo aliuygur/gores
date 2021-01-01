@@ -13,6 +13,9 @@ this package is very small and lightweight, useful for RESTful APIs.
 
 `go get github.com/alioygur/gores`
 
+## requirements
+
+gores library requires Go version `>=1.7`
 
 ## usage
 
